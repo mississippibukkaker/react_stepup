@@ -13,6 +13,9 @@ export const App = () => {
   const onClickToggle = () => {
     setIsVisible(!isVisible)
   }
+  const onClickClose = () => {
+    setIsVisible(false)
+  }
 
   return (
     <div className="App">
@@ -20,7 +23,7 @@ export const App = () => {
       <br />
       <br />
       <button onClick={onClickToggle}>表示</button>
-      <ChildArea open = {isVisible} />
+      <ChildArea open = {isVisible} onClickClose={onClickClose} />
     </div>
   );
 };

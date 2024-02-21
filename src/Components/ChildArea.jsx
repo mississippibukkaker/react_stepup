@@ -7,7 +7,7 @@ const style = {
 }
 
 export const ChildArea = memo((props) => {
-  const { open } = props;
+  const { open, onClickClose } = props;
   console.log("ChildAreaがレンダリングされた!!");
 
   // 模擬的にレンダリングコストの高い箇所を作成
@@ -21,6 +21,7 @@ export const ChildArea = memo((props) => {
       {open ? (
         <div style={style}>
           <p>子コンポーネント</p>
+          <button onClick={onClickClose}>閉じる</button>
         </div>
       ) : null}
     </>
