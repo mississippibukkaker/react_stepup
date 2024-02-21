@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import "./App.css";
 import { ChildArea } from "./Components/ChildArea";
 
@@ -13,9 +13,11 @@ export const App = () => {
   const onClickToggle = () => {
     setIsVisible(!isVisible)
   }
-  const onClickClose = () => {
+
+  // 再レンダリングの度にアロー関数が再定義される扱いになる事象をuseCallbackで防止
+  const onClickClose = useCallback(() => {
     setIsVisible(false)
-  }
+  }, []);
 
   return (
     <div className="App">
