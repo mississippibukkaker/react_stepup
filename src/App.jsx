@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import "./App.css";
 import { ChildArea } from "./Components/ChildArea";
 
@@ -18,6 +18,10 @@ export const App = () => {
   const onClickClose = useCallback(() => {
     setIsVisible(false)
   }, []);
+
+  // useMemoを用いてレンダリングコストの高い変数(=複雑な計算してる等)が初回だけ読み込まれるようにする
+  const temp = useMemo(() => 1+3, []);
+  console.log(temp)
 
   return (
     <div className="App">
