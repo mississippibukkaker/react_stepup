@@ -1,11 +1,12 @@
 const style = {
   width: "100%",
   height: "200px",
-  backGroundColor: "khaki"
+  backgroundColor: "khaki"
 }
 
 export const ChildArea = (props) => {
   const { open } = props;
+
   return (
     <>
       {open ? (
