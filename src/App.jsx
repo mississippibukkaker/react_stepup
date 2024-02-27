@@ -1,8 +1,10 @@
-import './Styles.css';
+import { BrowserRouter } from "react-router-dom";
+import "./Styles.css";
 import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
 import { SecondaryButton } from "./components/atoms/button/SecondaryButton";
 import { SearchInput } from "./components/molecules/SearchInput";
 import { UserCard } from "./components/organisms/user/UserCard";
+import { HeaderOnly } from "./components/templates/HeaderOnly";
 
 const user = {
   name: "じゃけえ",
@@ -10,18 +12,20 @@ const user = {
   email: "12345@example.com",
   phone: "090-1111-1111",
   company: {
-    name: "テスト株式会社"
+    name: "テスト株式会社",
   },
-  website: "https://google.com"
+  website: "https://google.com",
 };
 
 export const App = () => {
   return (
-    <div className="App">
-      <PrimaryButton>テスト</PrimaryButton>
-      <SecondaryButton>検索</SecondaryButton>
-      <SearchInput />
-      <UserCard user={user} />
-    </div>
+    <BrowserRouter>
+      <HeaderOnly>
+        <PrimaryButton>テスト</PrimaryButton>
+        <SecondaryButton>検索</SecondaryButton>
+        <SearchInput />
+        <UserCard user={user} />
+      </HeaderOnly>
+    </BrowserRouter>
   );
 };
