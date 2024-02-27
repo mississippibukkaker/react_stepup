@@ -1,24 +1,26 @@
 import styled from "styled-components";
 
-export const UserCard = () => {
+export const UserCard = (props) => {
+  const { user } = props;
+
   return (
     <div>
       <img
         height={160}
         width={160}
-        src="https://source.unsplash.com/NEOXGVKTmcA"
+        src={user.image}
         alt="プロフィール"
       />
-      <p>名前</p>
+      <p>{user.name}</p>
       <dl>
         <dt>メール</dt>
-        <dd>111@aaa.com</dd>
+        <dd>{user.email}</dd>
         <dt>TEL</dt>
-        <dd>090-111-1111</dd>
+        <dd>{user.phone}</dd>
         <dt>会社名</dt>
-        <dd>あああ株式会社</dd>
+        <dd>{user.company.name}</dd>
         <dt>WEB</dt>
-        <dd>http://gsgs.com</dd>
+        <dd>{user.website}</dd>
       </dl>
     </div>
   );
